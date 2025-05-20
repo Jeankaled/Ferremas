@@ -1,0 +1,19 @@
+
+# Entorno virtual
+integracionPlataformas/
+
+# Archivos pycache
+__pycache__/
+*.py[cod]
+
+# Configuraciones específicas de IDE
+.vscode/
+.idea/
+
+# Archivos de logs y temporales
+*.log
+*.tmp
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
