@@ -1,6 +1,15 @@
 from django.db import models
 
 # Create your models here.
+
+class CategoriaProducto(models.Model):
+    nombre_categoria_producto = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.nombre_categoria_producto
+    
+    
+    
 class Producto(models.Model):
     nombre_producto = models.CharField(max_length=100)
     codigo_producto = models.CharField(max_length=50)
@@ -12,12 +21,6 @@ class Producto(models.Model):
         return self.nombre_producto
     
 
-class CategoriaProducto(models.Model):
-    nombre_categoria_producto = models.CharField(max_length=100)
-    
-    def __str__(self):
-        return self.nombre_categoria_producto
-    
 
 class PrecioProducto(models.Model):
     precio = models.DecimalField(max_digits=10, decimal_places=2)

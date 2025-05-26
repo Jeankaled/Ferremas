@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class pago(models.Model):
+class Pago(models.Model):
     METODO_PAGO = [
         ('Efectivo', 'Efectivo'),
         ('Tarjeta', 'Tarjeta de credito/debito'),

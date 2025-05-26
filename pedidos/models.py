@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class pedido(models.Model):
+class Pedido(models.Model):
     METODO_PAGO = [
         ('Efectivo', 'Efectivo'),
         ('Tarjeta', 'Tarjeta de credito/debito'),
@@ -27,7 +27,7 @@ class pedido(models.Model):
     def get_absolute_url(self):
         return f"/pedidos/{self.id}/"
     
-class detalle_pedido(models.Model):
+class Detalle_Pedido(models.Model):
     pedido = models.ForeignKey('pedidos.pedido', on_delete=models.CASCADE)
     producto = models.ForeignKey('productos.producto', on_delete=models.CASCADE)
     cantidad = models.PositiveIntegerField()

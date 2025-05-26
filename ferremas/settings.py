@@ -11,10 +11,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os, cx_Oracle
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -37,6 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'productos',
+    'clientes',
+    'pedidos',
+    'pagos',
+    'inventario',
 ]
 
 MIDDLEWARE = [
@@ -72,10 +76,22 @@ WSGI_APPLICATION = 'ferremas.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+cx_Oracle.init_oracle_client(
+    lib_dir=r"C:\Users\jeana\Desktop\instantclient-basic-windows.x64-23.8.0.25.04\instantclient_23_8",
+    config_dir = str(BASE_DIR / 'wallet' / 'wallet_ferremas'),
+)
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'ferremasdb_low',
+        'USER': 'ADMIN',
+        'PASSWORD': 'Ferremas.DataBase_123',
+        'OPTIONS' : { 
+            'threaded': True,
+        },
     }
 }
 
