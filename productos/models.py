@@ -13,7 +13,11 @@ class CategoriaProducto(models.Model):
 class Producto(models.Model):
     nombre_producto = models.CharField(max_length=100)
     codigo_producto = models.CharField(max_length=50)
-    CategoriaProducto = models.ForeignKey(CategoriaProducto, on_delete=models.CASCADE)
+    categoria_Producto = models.ForeignKey(
+        CategoriaProducto, 
+        on_delete=models.CASCADE,
+        db_column= 'CATEGORIAPRODUCTO_ID'
+        )
     marca_producto = models.CharField(max_length=100)
     descripcion_producto = models.TextField()
     

@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-import os, cx_Oracle
+import cx_Oracle
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'productos',
     'clientes',
     'pedidos',
@@ -78,20 +79,22 @@ WSGI_APPLICATION = 'ferremas.wsgi.application'
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-cx_Oracle.init_oracle_client(
-    lib_dir=r"C:\Users\jeana\Desktop\instantclient-basic-windows.x64-23.8.0.25.04\instantclient_23_8",
-    config_dir = str(BASE_DIR / 'wallet' / 'wallet_ferremas'),
-)
+wallet_path = BASE_DIR / 'wallet' / 'Wallet_FerremasDB'
+
+try:
+    cx_Oracle.init_oracle_client(config_dir=str(wallet_path))
+except cx_Oracle.ProgrammingError as e:
+    if "already been initialized" in str(e):
+        pass
+    else:
+        raise
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'ferremasdb_low',
+        'NAME': 'ferremasdb_medium',
         'USER': 'ADMIN',
         'PASSWORD': 'Ferremas.DataBase_123',
-        'OPTIONS' : { 
-            'threaded': True,
-        },
     }
 }
 
