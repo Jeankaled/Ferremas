@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
-import os
+import cx_Oracle,os
 import sys
 
 
@@ -20,3 +20,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+cx_Oracle.init_oracle_client(lib_dir=r'C:\Users\jeana\Desktop\Ferremas\wallet')
