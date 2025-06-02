@@ -1,31 +1,25 @@
 from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import viewsets
 from .models import Pago
 from .serializers import PagoSerializer
 
 
 # Create your views here.
 
+class PagoViewSet(viewsets.ModelViewSet):
+    queryset = Pago.objects.all()
+    serializer_class = PagoSerializer
+    
+    
+class PagoClienteViewSet(viewsets.ModelViewSet):
+    serializer_class = PagoSerializer
 
-class PagoList(generics.ListCreateAPIView):
-    queryset = Pago.objects.all()
-    serializer_class = PagoSerializer
-    
-class PagoDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Pago.objects.all()
-    serializer_class = PagoSerializer
-    
-class ClientePagoList(generics.ListCreateAPIView):
-    serializer_class = PagoSerializer
-    
     def get_queryset(self):
-        cliente_id = self.kwargs['cliente_id']
-        return Pago.objects.filter(cliente__id=cliente_id)
-    
-class ClientePagoDetail(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = PagoSerializer
-    
-    def get_queryset(self):
-        cliente_id = self.kwargs['cliente_id']
-        return Pago.objects.filter(cliente__id=cliente_id)
-    
+        cliente_id = self.kwargs.get('cliente_id')
+        return Pago.objects.filter(cliente_id=cliente_id)
+
+    def perform_create(self, serializer):
+        cliente_id = self.kwargs.get('cliente_id')
+        serializer.save(cliente_id=cliente_id)
+        
+        

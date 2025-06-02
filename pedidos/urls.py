@@ -1,11 +1,19 @@
-from django.urls import path
-from .views import PedidoListCreateView, PedidoDetailView,Detalle_PedidoListCreateView, Detalle_PedidoDetailView, ClientePedidoList, ClientePedidoDetail
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from rest_framework_nested import routers
+from .views import PedidoViewSet, PedidoClienteViewSet
+from clientes.views import ClienteViewSet
+
+router = DefaultRouter()
+router.register(r'pedidos', PedidoViewSet, basename='pedido')
+router.register(r'detalles-pedidos', PedidoClienteViewSet, basename='pedido-detalle')
+router.register(r'clientes', ClienteViewSet, basename='cliente')
+
+clientes_router = routers.NestedDefaultRouter(router, r'clientes', lookup='cliente')
+clientes_router.register(r'pedidos', PedidoClienteViewSet, basename='cliente-pedido')
+
 
 urlpatterns = [
-    path('', PedidoListCreateView.as_view(), name='pedido-list'),
-    path('<int:pk>/', PedidoDetailView.as_view(), name='pedido-detail'),
-    path('detalle/', Detalle_PedidoListCreateView.as_view(), name='detalle-list'),
-    path('detalle/<int:pk>/', Detalle_PedidoDetailView.as_view(), name='detalle-detail'),
-    path('cliente/', ClientePedidoList.as_view(), name='cliente-list'),
-    path('cliente/<int:pk>/', ClientePedidoDetail.as_view(), name='cliente-detail'),
+  path('', include(router.urls)),
+  path('', include(clientes_router.urls)),
 ]
