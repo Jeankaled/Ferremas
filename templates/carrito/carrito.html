@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Ferremás</title>
+    <link rel="stylesheet" href="styleCarrito.css">
+</head>
+
+<body>
+
+    <!-- Encabezado -->
+    <header class="site-header">
+        <div class="container">
+            <h1 class="ferremas-title">
+                <span class="ferremas-yellow">FERREMÁS</span><br> Distribuidora de <span class="ferremas-beige">Productos de Ferretería</span> y <span class="ferremas-beige">Construcción</span>
+            </h1>
+            <div class="top-bar">
+                <div class="logo">
+                    <img src="C:\Users\jeana\Downloads\ChatGPT Image 22 jun 2025, 08_50_06 p.m..png" alt="Ferremás Logo" class="logo-img">
+                </div>
+                <div class="nav-links">
+                    <a href="../inicio\inicio.html" class="nav-link">¿Quiénes somos?</a>
+                    <a href="../catalogo de productos/catalogo.html" class="nav-link">Productos</a>  
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                    <div class="dropdown">
+                </div>
+                
+                
+                <!-- Mi cuenta y carrito -->
+                <div class="user-cart">
+                    <a href="#mi-cuenta" class="nav-link">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="../carrito/carrito.html" class="nav-link"></a>
+                        <i class="fas fa-shopping-cart"></i> 
+                         (<span id="cart-count">0</span>)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+        
+    </header>
+
+    <!-- Carrito -->
+    <section class="carrito">
+        <div class="container">
+            <h2>Tu Carrito</h2>
+            
+            
+            <!-- Lista de productos en el carrito -->
+            <div class="productos-carrito">
+                
+            </div>
+
+            <!-- Total del carrito -->
+            <div class="carrito-info">
+                <span id="cart-count">0</span> Productos
+                <div id="total-carrito">Total: $0.00</div> <!-- Mostrar el total aquí -->
+            </div>
+
+            <!-- Botones -->
+            <div class="botones-carrito">
+                <button class="vaciar-btn" onclick="clearCart()">Vaciar Carrito</button>
+                <button class="pagar-btn" onclick="proceedToCheckout()">Pagar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer id="contacto" class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Ferremás - Todos los derechos reservados</p>
+            <p>Contacto: contacto@ferremas.com | Teléfono: +56 2 1234 5678</p>
+        </div>
+    </footer>
+
+    <script src="scriptCarrito.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Ferremás</title>
+    <link rel="stylesheet" href="styleLogin.css">
+</head>
+
+<body>
+    <!-- Encabezado -->
+    <header class="site-header">
+        <div class="container">
+            <h1 class="ferremas-title">
+                <span class="ferremas-yellow">FERREMÁS</span><br> Distribuidora de <span class="ferremas-beige">Productos de Ferretería</span> y <span class="ferremas-beige">Construcción</span>
+            </h1>
+            <div class="top-bar">
+                <div class="logo">
+                    <img src="C:\Users\jeana\Downloads\ChatGPT Image 22 jun 2025, 08_50_06 p.m..png" alt="Ferremás Logo" class="logo-img">
+                </div>
+                <div class="nav-links">
+                    <!-- Menú desplegable para Categorías -->
+                    <div class="dropdown">
+                        <a href="#" class="nav-link">Categorías <i class="fas fa-caret-down"></i></a>
+                        <!-- Menú desplegable -->
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Electrónica</a>
+                            <a href="#" class="dropdown-item">Baño y Cocina</a>
+                            <a href="#" class="dropdown-item">Herramientas</a>
+                            <a href="#" class="dropdown-item">Jardín</a>
+                            <a href="#" class="dropdown-item">Construcción</a>
+                        </div>
+                    </div>
+                    <a href="../catalogo de productos/catalogo.html" class="nav-link">Productos</a>
+                    <a href="#ofertas" class="nav-link">Ofertas</a>
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </div>
+                
+                <!-- Mi cuenta y carrito -->
+<div class="user-cart">
+    <a href="#mi-cuenta" class="nav-link">
+        <i class="fas fa-user"></i> Mi Cuenta
+    </a>
+    <a href="../carrito/carrito.html" class="nav-link" id="cart-icon">
+        <i class="fas fa-shopping-cart"></i> 
+        Carrito (<span id="cart-count">0</span>)
+    </a>
+
+</div>
+
+            </div>
+        </div>
+    </header>
+   
+
+    <!-- Contenedor para los formularios -->
+    <div class="main-section" id="form-container">
+
+        <!-- Formulario de login -->
+        <div class="form-container" id="login-form">
+            <h2>Iniciar sesión</h2>
+            <form id="login">
+                <div class="input-group">
+                    <label for="login-email">Correo electrónico</label>
+                    <input type="email" id="login-email" name="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Contraseña</label>
+                    <input type="password" id="login-password" name="password" placeholder="Contraseña" required>
+                </div>
+                <button type="submit">Iniciar sesión</button>
+                <p class="switch-form">¿No tienes cuenta? <span id="go-register">Regístrate</span></p>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="scriptLogin.js"></script>
+</body>
+</html>

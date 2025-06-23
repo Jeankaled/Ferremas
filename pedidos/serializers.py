@@ -5,7 +5,10 @@ from clientes.models import Cliente
 
 
 class DetallePedidoSerializer(serializers.ModelSerializer):
-    producto = serializers.CharField(source='producto.nombre_producto', read_only=True)
+    producto = serializers.CharField(
+        source='producto.nombre_producto',
+        read_only=True
+        )
     class Meta:
         model = Detalle_Pedido
         fields = [
@@ -18,7 +21,10 @@ class DetallePedidoSerializer(serializers.ModelSerializer):
 
 
 class PedidoSerializer(serializers.ModelSerializer):
-    Cliente = serializers.CharField(source='cliente.nombre_cliente', read_only=True)
+    Cliente = serializers.CharField(
+        source='cliente.nombre_cliente',
+        read_only=True
+        )
     detalles = DetallePedidoSerializer(many=True, read_only=True)
     class Meta:
         model = Pedido

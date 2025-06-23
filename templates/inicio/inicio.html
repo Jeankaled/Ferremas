@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferremás - Distribuidora de Productos de Ferretería y Construcción</title>
+    <link rel="stylesheet" href="styleInicio.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header class="site-header">
+        <div class="container">
+            <h1 class="ferremas-title">
+                <span class="ferremas-yellow">FERREMÁS</span><br> Distribuidora de <span class="ferremas-beige">Productos de Ferretería</span> y <span class="ferremas-beige">Construcción</span>
+            </h1>
+            <div class="top-bar">
+                <div class="logo">
+                    <img src="C:\Users\jeana\Downloads\ChatGPT Image 22 jun 2025, 08_50_06 p.m..png" alt="Ferremás Logo" class="logo-img">
+                </div>
+                <div class="nav-links">
+                    <!-- Menú desplegable para Categorías -->
+                    <div class="dropdown">
+                        <a href="#" class="nav-link">Categorías <i class="fas fa-caret-down"></i></a>
+                        <!-- Menú desplegable -->
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Electrónica</a>
+                            <a href="#" class="dropdown-item">Baño y Cocina</a>
+                            <a href="#" class="dropdown-item">Herramientas</a>
+                            <a href="#" class="dropdown-item">Jardín</a>
+                            <a href="#" class="dropdown-item">Construcción</a>
+                        </div>
+                    </div>
+                    <a href="../catalogo de productos/catalogo.html" class="nav-link">Productos</a>
+                    <a href="#ofertas" class="nav-link">Ofertas</a>
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </div>
+                <!-- Barra de búsqueda -->
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Buscar productos...">
+                    <button class="search-btn"><i class="fas fa-search"></i> Buscar</button>
+                </div>
+                <!-- Mi cuenta y carrito -->
+<div class="user-cart">
+    <a href="#mi-cuenta" class="nav-link">
+        <i class="fas fa-user"></i> Mi Cuenta
+    </a>
+    <a href="../carrito/carrito.html" class="nav-link" id="cart-icon">
+        <i class="fas fa-shopping-cart"></i> 
+        Carrito (<span id="cart-count">0</span>)
+    </a>
+
+</div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Quiénes Somos -->
+    <section id="quienes-somos" class="quienes-somos">
+        <div class="container">
+            <h2>¿Quiénes somos?</h2>
+            <p>En Ferremás, ofrecemos una amplia gama de productos de ferretería y construcción de alta calidad, con entrega a domicilio y precios competitivos. Nuestra misión es ser el aliado perfecto para tus proyectos, brindándote soluciones rápidas y efectivas. ¡Confía en nosotros para todo lo que necesitas!</p>
+        </div>
+    </section>
+
+    <!-- Sección de Productos por Categoría -->
+    <section id="productos" class="productos-categoria">
+        <h2>Productos por Categoría</h2>
+        <div class="productos">
+            <div class="producto">
+                <img src="https://ferrobal.cl/wp-content/uploads/2023/10/clavo-4-1kg.png" alt="Clavo Corriente">
+                <p class="producto-nombre">Clavo Corriente 4", bolsa 1kg</p>
+                <p class="producto-precio">$1,890</p>
+                <button class="agregar-btn" onclick="addToCart('Clavo Corriente 4', 'bolsa 1kg')">Agregar al carrito</button>
+            </div>
+            <div class="producto">
+                <img src="https://rgm.vtexassets.com/arquivos/ids/156235-800-auto?v=638554617786370000&width=800&height=auto&aspect=true" alt="Martillo Carpintero">
+                <p class="producto-nombre">Martillo Carpintero 16 Oz Uyustools</p>
+                <p class="producto-precio">$8,490</p>
+                <button class="agregar-btn" onclick="addToCart('Martillo Carpintero 16 Oz Uyustools')">Agregar al carrito</button>
+            </div>
+            <div class="producto">
+                <img src="https://construmartcl.vtexassets.com/arquivos/ids/230441-800-auto?v=638811980566570000&width=800&height=auto&aspect=true" alt="Destornillador">
+                <p class="producto-nombre">Destornillador Punta Paleta 5 x 75 mm</p>
+                <p class="producto-precio">$3,407</p>
+                <button class="agregar-btn" onclick="addToCart('Destornillador Punta Paleta 5 x 75 mm')">Agregar al carrito</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Productos con Descuento -->
+    <section id="ofertas" class="productos-descuento">
+        <h2>Productos con Descuento</h2>
+        <div class="productos">
+            <div class="producto">
+                <img src="https://airolite.cl/cdn/shop/files/ht-2018_3-4-ae798dd8-bd66-4cd0-8e4e-6b217e7a75c6_1024x1024.jpg?v=1713885359" alt="Termoventilador">
+                <p class="producto-nombre">Termoventilador 2000W MT2025-16 Blanco</p>
+                <p class="producto-precio"><del>$18,000</del> $14,990</p>
+                <button class="agregar-btn" onclick="addToCart('Termoventilador 2000W MT2025-16 Blanco')">Agregar al carrito</button>
+            </div>
+            <div class="producto">
+                <img src="https://media.falabella.com/sodimacCL/900281_01/w=800,h=800,fit=pad" alt="Martillo Carpintero">
+                <p class="producto-nombre">Martillo Carpintero 16 Oz</p>
+                <p class="producto-precio"><del>$20,000</del> $15,651</p>
+                <button class="agregar-btn" onclick="addToCart('Martillo Carpintero 16 Oz')">Agregar al carrito</button>
+            </div>
+            <div class="producto">
+                <img src="https://www.apro.cl/cdn/shop/files/167094-1600-auto.jpg?v=1748545974" alt="Casco de Seguridad">
+                <p class="producto-nombre">Casco de Seguridad 3M</p>
+                <p class="producto-precio"><del>$18,000</del> $14,500</p>
+                <button class="agregar-btn" onclick="addToCart('Casco de Seguridad 3M')">Agregar al carrito</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer id="contacto" class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Ferremás - Todos los derechos reservados</p>
+            <p>Contacto: contacto@ferremas.com | Teléfono: +56 2 1234 5678</p>
+            <p>¿Por qué comprar en Ferremás? Ofrecemos productos de calidad a precios competitivos y con entrega a domicilio.</p>
+        </div>
+    </footer>
+
+    <script src="scriptInicio.js"></script>
+
+    <script>
+        let cartCount = 0; // Variable para contar los productos en el carrito
+
+        // Función para agregar productos al carrito
+        function addToCart(productName) {
+            cartCount++; // Aumenta el contador del carrito
+            document.getElementById("cart-count").textContent = cartCount; // Actualiza la cantidad de productos en el carrito
+            console.log(`Producto agregado: ${productName}`);
+        }
+    </script>
+
+</body>
+</html>
