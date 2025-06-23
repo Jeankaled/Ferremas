@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferremás - Distribuidora de Productos de Ferretería y Construcción</title>
+    <link rel="stylesheet" href="styleProductos.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header class="site-header">
+        <div class="container">
+            <h1 class="ferremas-title">
+                <span class="ferremas-yellow">FERREMÁS</span><br> Distribuidora de <span class="ferremas-beige">Productos de Ferretería</span> y <span class="ferremas-beige">Construcción</span>
+            </h1>
+            <div class="top-bar">
+                <div class="logo">
+                    <img src="C:\Users\jeana\Downloads\ChatGPT Image 22 jun 2025, 08_50_06 p.m..png" alt="Ferremás Logo" class="logo-img">
+                </div>
+                <div class="nav-links">
+                    <a href="../inicio/inicio.html" class="nav-link">¿Quiénes somos?</a>
+                    <a href="../catalogo de productos/catalogo.html" class="nav-link">Productos</a>
+                    <a href="#ofertas" class="nav-link">Ofertas</a>
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                    <div class="dropdown">
+                </div>
+                <!-- Barra de búsqueda -->
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Buscar productos...">
+                    <button class="search-btn"><i class="fas fa-search"></i> Buscar</button>
+                </div>
+                
+                <!-- Mi cuenta y carrito -->
+                <div class="user-cart">
+                    <a href="#mi-cuenta" class="nav-link">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="../carrito/carrito.html" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i> 
+                         (<span id="cart-count">0</span>)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Filtros -->
+    <section id="productos" class="productos-categoria">
+    <div class="filter">
+        <h3>Categorías</h3>
+        <div class="filter-item">
+            <input type="checkbox" id="electronica" onchange="filterProducts()"> <label for="electronica">Electrónica</label>
+        </div>
+        <div class="filter-item">
+            <input type="checkbox" id="bano-cocina" onchange="filterProducts()"> <label for="bano-cocina">Baño y Cocina</label>
+        </div>
+        <div class="filter-item">
+            <input type="checkbox" id="herramientas" onchange="filterProducts()"> <label for="herramientas">Herramientas</label>
+        </div>
+        <div class="filter-item">
+            <input type="checkbox" id="jardin" onchange="filterProducts()"> <label for="jardin">Jardín</label>
+        </div>
+        <div class="filter-item">
+            <input type="checkbox" id="construccion" onchange="filterProducts()"> <label for="construccion">Construcción</label>
+        </div>
+        <button class="filter-btn" onclick="clearFilters()">Limpiar Filtros</button>
+    </div>
+
+    <!-- Productos -->
+    <div class="productos">
+        <div class="producto producto-electronica">
+            <img src="https://tecnoiluminacion.cl/29-large_default/foco-embutido-panel-redondo-led-20w-ip20-3000k.jpg" alt="Producto Electrónica 1">
+            <p class="producto-nombre">PANEL LED AD EMBUTIDO REDONDO 20W</p>
+            <p class="producto-precio">$4,629</p>
+            <button class="agregar-btn" onclick="addToCart('PANEL LED AD EMBUTIDO REDONDO 20W',4.629)">Agregar al carrito</button>
+        </div>
+        <div class="producto producto-electronica">
+            <img src="https://rhona.cl/uploads/2013/10/20131009142731-producto-interruptor-915-doble-blanco_1-800x515.jpg" alt="Producto Electrónica 2">
+            <p class="producto-nombre">Interruptor 915 Doble Blanco</p>
+            <p class="producto-precio">$5.147</p>
+            <button class="agregar-btn" onclick="addToCart('Interruptor 915 Doble Blanco')">Agregar al carrito</button>
+        </div>
+        <div class="producto producto-electronica">
+            <img src="https://cdnx.jumpseller.com/casa-contigo/image/25474355/resize/610/610?1721361694" alt="Producto Electrónica 3">
+            <p class="producto-nombre">Alargador 3M 4POS INT 1 Un Hyper Tough</p>
+            <p class="producto-precio">$6.500</p>
+            <button class="agregar-btn" onclick="addToCart('Alargador 3M 4POS INT 1 Un Hyper Tough')">Agregar al carrito</button>
+        </div>
+        <div class="producto producto-electronica">
+            <img src="https://rhona.cl/uploads/2019/06/20190613093003-producto-sensor-de-movimiento_1-800x515.jpg" alt="Producto Electrónica 4">
+            <p class="producto-nombre">Sensor de Movimiento</p>
+            <p class="producto-precio">$10.598</p>
+            <button class="agregar-btn" onclick="addToCart('Sensor de Movimiento')">Agregar al carrito</button>
+        </div>
+        <div class="producto producto-electronica">
+            <img src="https://www.lara.cl/wp-content/uploads/2020/06/IL-FOTOCELDA-IMP.jpg" alt="Producto Electrónica 5">
+            <p class="producto-nombre">IL FOTOCELDA IMP</p>
+            <p class="producto-precio">$6.580</p>
+            <button class="agregar-btn" onclick="addToCart('IL FOTOCELDA IMP')">Agregar al carrito</button>
+        </div>
+
+        <div class="producto producto-bano-cocina">
+            <img src="https://media.falabella.com/sodimacCL/5502330_01/w=1500,h=1500,fit=pad" alt="Producto Baño y Cocina 1">
+            <p class="producto-nombre">Licuadora de Mano</p>
+            <p class="producto-precio">$14.990</p>
+            <button class="agregar-btn" onclick="addToCart('Licuadora de Mano')">Agregar al carrito</button>
+        </div>
+        <div class="producto producto-bano-cocina">
+            <img src="https://pabst.cl/medios/2021/03/Imagen2.png" alt="Producto Baño y Cocina 2">
+            <p class="producto-nombre">Calentador de Toallas 300W</p>
+            <p class="producto-precio">$230.000</p>
+            <button class="agregar-btn" onclick="addToCart('Calentador de Toallas 300W')">Agregar al carrito</button>
+        </div>
+        <div class="producto producto-bano-cocina">
+            <img src="https://cdnx.jumpseller.com/oym-agencia/image/41593179/thumb/1438/1438?1723579750" alt="Producto Baño y Cocina 3">
+            <p class="producto-nombre">Ursus horno eléctrico ut-backofen pro-b 25l</p>
+            <p class="producto-precio">$49.990</p>
+            <button class="agregar-btn" onclick="addToCart('Ursus horno eléctrico ut-backofen pro-b 25l')">Agregar al carrito</button>
+        </div>
+        <div class="producto producto-bano-cocina">
+            <img src="https://rimage.ripley.cl/home.ripley/Attachment/WOP/1/2000398523349/full_image-2000398523349.jpg" alt="Producto Baño y Cocina 4">
+            <p class="producto-nombre">juego de toalla home azul</p>
+            <p class="producto-precio">$7.990</p>
+            <button class="agregar-btn" onclick="addToCart('juego de toalla home azul')">Agregar al carrito</button>
+        </div>
+        <div class="producto producto-bano-cocina">
+            <img src="https://ostercl.vtexassets.com/arquivos/ids/158332/TSSTTR500-2.jpg?v=637255962019100000" alt="Producto Baño y Cocina 5">
+            <p class="producto-nombre">Tostadora Oster TSSTTR500</p>
+            <p class="producto-precio">$36.990</p>
+            <button class="agregar-btn" onclick="addToCart('Tostadora Oster TSSTTR500')">Agregar al carrito</button>
+        </div>
+
+        <div class="producto producto-herramientas">
+            <img src="https://comercialjeno.cl/cdn/shop/files/td4506.webp?v=1716567490" alt="Producto Herramientas 1">
+            <p class="producto-nombre">Taladro Eléctrico 500W</p>
+            <p class="producto-precio">$45,990</p>
+            <button class="agregar-btn" onclick="addToCart('Taladro Eléctrico 500W')">Agregar al carrito</button>
+        </div>
+        
+        <div class="producto producto-herramientas">
+            <img src="https://cdnx.jumpseller.com/almasolar-cl/image/42443491/resize/640/640?1700600375" alt="Producto Herramientas 3">
+            <p class="producto-nombre">Juego de Destornilladores 10 Piezas</p>
+            <p class="producto-precio">$3.990</p>
+            <button class="agregar-btn" onclick="addToCart('Juego de Destornilladores 10 Piezas')">Agregar al carrito</button>
+        </div>
+        <div class="producto producto-herramientas">
+            <img src="https://www.molychile.cl/cdn/shop/products/fbc55e96-9f26-4598-878b-37c734cc58cc-30097-7_1_multimetro_digital_profesional_nct_ut89x_uni-t-b38af6a3-6c46-4ea2-b505-1709ea754f5d.jpg?v=1708625007" alt="Producto Herramientas 4">
+            <p class="producto-nombre">Multimetro Digital Profesional NCT UT89X Uni-T</p>
+            <p class="producto-precio">$35.990</p>
+            <button class="agregar-btn" onclick="addToCart('Multimetro Digital Profesional NCT UT89X Uni-T')">Agregar al carrito</button>
+        </div>
+        <div class="producto producto-herramientas">
+            <img src="https://trongemen.cl/wp-content/uploads/SERRUCHO-HELA-61022.jpg" alt="Producto Herramientas 5">
+            <p class="producto-nombre">SERRUCHO HELA 61022</p>
+            <p class="producto-precio">$15.990</p>
+            <button class="agregar-btn" onclick="addToCart('SERRUCHO HELA 61022')">Agregar al carrito</button>
+        </div>
+
+        <div class="producto producto-jardin">
+            <img src="https://www.marazul.cl/wp-content/uploads/2019/02/palajardinchina.jpg" alt="Producto Jardín 2">
+            <p class="producto-nombre">Pala Jardín Chino</p>
+            <p class="producto-precio">$7.380</p>
+            <button class="agregar-btn" onclick="addToCart('Pala Jardín Chino')">Agregar al carrito</button>
+        </div>
+        <div class="producto producto-jardin">
+            <img src="https://www.copeval.cl/media/catalog/product/cache/18f63f74073cc6786a1e1c253d98bdd3/9/8/98529_IMD.jpg" alt="Producto Jardín 3">
+            <p class="producto-nombre">Surtek RASF16 Rastrillo Recto para Asfalto con Mango Fibra de Vidrio 60", 16 Dientes</p>
+            <p class="producto-precio">$22.790</p>
+            <button class="agregar-btn" onclick="addToCart('Guantes de Jardín')">Agregar al carrito</button>
+        </div>
+        <div class="producto producto-jardin">
+            <img src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/sodimacCL/8992649_13/w=800,h=800,fit=pad" alt="Producto Jardín 4">
+            <p class="producto-nombre">GRegadera metálica 2 litros colores surtidos - ergo</p>
+            <p class="producto-precio">$7.390</p>
+            <button class="agregar-btn" onclick="addToCart('Guantes de Jardín')">Agregar al carrito</button>
+        </div>
+        <div class="producto producto-jardin">
+            <img src="https://ferreteria-oviedo.s3.us-east-2.amazonaws.com/imagenes/productos/ALTU0010_20220930163241.jpg" alt="Producto Jardín 5">
+            <p class="producto-nombre">Tijera Podar (0701) 23 Cm M/Metal Altuna 181465</p>
+            <p class="producto-precio">$29.190</p>
+            <button class="agregar-btn" onclick="addToCart('Tijera Podar (0701) 23 Cm M/Metal Altuna 181465')">Agregar al carrito</button>
+        </div>
+
+        <div class="producto producto-construccion">
+            <img src="https://yukon.cl/wp-content/uploads/2024/05/tuberia-pvc-p-1.png" alt="Producto Construcción 1">
+            <p class="producto-nombre">TUBERIA PVC PRESION </p>
+            <p class="producto-precio">$2,300</p>
+            <button class="agregar-btn" onclick="addToCart('Cemento 50kg')">Agregar al carrito</button>
+        </div>
+        <div class="producto producto-construccion">
+            <img src="https://ferreteriacaupolican.cl/cdn/shop/files/sacocemento.jpg?v=1727789774" alt="Producto Construcción 2">
+            <p class="producto-nombre">Saco de Cemento</p>
+            <p class="producto-precio">$3.990</p>
+            <button class="agregar-btn" onclick="addToCart('Saco de Cemento')">Agregar al carrito</button>
+        </div>
+        <div class="producto producto-construccion">
+            <img src="https://bingrid.com/ys-dust/a_box42_20201202135136_tarro.jpg" alt="Producto Construcción 3">
+            <p class="producto-nombre">Tarro de pintura</p>
+            <p class="producto-precio">$13.990</p>
+            <button class="agregar-btn" onclick="addToCart('tarro de pintura')">Agregar al carrito</button>
+        </div>
+        <div class="producto producto-construccion">
+            <img src="https://iberica.cl/wp-content/uploads/2022/11/Yeso-1kg.jpg" alt="Producto Construcción 4">
+            <p class="producto-nombre">Yeso 1kg</p>
+            <p class="producto-precio">$1.990</p>
+            <button class="agregar-btn" onclick="addToCart('Yeso 1kg')">Agregar al carrito</button>
+            </div>
+            <div class="producto producto-construccion">
+                <img src="https://www.kitto.cl/wp-content/uploads/2020/01/pack-2-andamios-galvanizado-profesional-con-tablon.jpg" alt="Producto Construcción 5">
+                <p class="producto-nombre">Pack 2 Andamios Galvanizado Profesional con Tablon</p>
+                <p class="producto-precio">$199.990</p>
+                <button class="agregar-btn" onclick="addToCart('Pack 2 Andamios Galvanizado Profesional con Tablon')">Agregar al carrito</button>
+            </div>
+
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <!-- Pie de Página -->
+    <footer id="contacto" class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Ferremás - Todos los derechos reservados</p>
+            <p>Contacto: contacto@ferremas.com | Teléfono: +56 2 1234 5678</p>
+            <p>¿Por qué comprar en Ferremás? Ofrecemos productos de calidad a precios competitivos y con entrega a domicilio.</p>
+        </div>
+    </footer>
+
+    <script src="scriptProductos.js"></script>
+
+    <script>
+        let cartCount = 0; // Variable para contar los productos en el carrito
+
+        // Función para agregar productos al carrito
+        function addToCart(productName) {
+            cartCount++; // Aumenta el contador del carrito
+            document.getElementById("cart-count").textContent = cartCount; // Actualiza la cantidad de productos en el carrito
+            console.log(`Producto agregado: ${productName}`);
+        }
+    </script>
+
+</body>
+</html>

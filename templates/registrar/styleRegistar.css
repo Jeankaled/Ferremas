@@ -1,0 +1,119 @@
+/*  ------------------------- Estilos Generales ------------------------- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f0ee; /* Fondo suave */
+}
+
+/* Barra superior */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #b91d00; /* Rojo */
+    padding: 10px 20px;
+    color: #E8C39E; /* Beige */
+}
+
+.logo-img {
+    width: 100px; /* Ajusta el tamaño del logo */
+}
+
+/* Estilo del enlace "Mi Cuenta" */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: #E8C39E; /* Beige */
+    text-decoration: none;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nav-link:hover {
+    color: white; /* Blanco al pasar el ratón */
+}
+
+/* Estilo de los formularios */
+.main-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.form-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h2 {
+    text-align: center;
+    color: #b91d00; /* Rojo */
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-weight: bold;
+    color: #333;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Botón de submit */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #b91d00;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #c3b300;
+}
+
+/* Enlace para cambiar entre los formularios */
+.switch-form {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.switch-form span {
+    color: #b91d00;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+    .main-section {
+        flex-direction: column;
+    }
+
+    .form-container {
+        width: 90%;
+        padding: 1.5rem;
+    }
+}
