@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'pedidos',
     'pagos',
     'inventario',
+    'corsheaders',
+    
 ]
 
 MIDDLEWARE = [
@@ -52,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'ferremas.urls'
@@ -142,3 +145,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 WEBPAY_COMMERCE_CODE = 'your_commerce_code'
 WEBPAY_API_KEY = 'your_api_key'
+
+CORS_ALLOWED_ORIGINS = [
+  "http://localhost:3000",
+]
