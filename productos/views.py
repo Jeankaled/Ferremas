@@ -6,6 +6,8 @@ from rest_framework import generics
 from .models import Producto, CategoriaProducto, PrecioProducto
 from .serializers import ProductoSerializer, CategoriaProductoSerializer, PrecioProductoSerializer
 
+
+
 class CategoriaProductoViewSet(viewsets.ModelViewSet):
     queryset = CategoriaProducto.objects.all()
     serializer_class = CategoriaProductoSerializer
