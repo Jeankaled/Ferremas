@@ -21,5 +21,8 @@ def main():
 if __name__ == '__main__':
     main()
 
-
-cx_Oracle.init_oracle_client(lib_dir=r'C:\Users\jeana\Desktop\Ferremas\wallet')
+try:
+    cx_Oracle.init_oracle_client(lib_dir=r'C:\Users\jeana\Desktop\Ferremas\wallet')
+except cx_Oracle.ProgrammingError:
+    # ya estaba inicializado, seguimos adelante
+    pass

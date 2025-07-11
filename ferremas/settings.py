@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import cx_Oracle
+from transbank.common.integration_type import IntegrationType
+from transbank.webpay.webpay_plus.transaction import Transaction
+from django.conf import settings
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
@@ -37,14 +41,26 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework_simplejwt.token_blacklist',
     'productos',
-    'clientes',
     'pedidos',
-    'pagos',
     'inventario',
     'corsheaders',
+    'carrito',
+    'users',
+    'clientes',
     
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -56,6 +72,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS = [
+  "http://localhost:3000",
+]
+
+
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'ferremas.urls'
 
@@ -143,9 +166,15 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-WEBPAY_COMMERCE_CODE = 'your_commerce_code'
-WEBPAY_API_KEY = 'your_api_key'
+TRANSBANK_INTEGRATION_TYPE = IntegrationType.TEST
+TRANSBANK_COMMERCE_CODE = "597052983229"
+TRANSBANK_API_KEY = "Tbk2...sandbox..."
+
 
 CORS_ALLOWED_ORIGINS = [
   "http://localhost:3000",
 ]
+CORS_ALLOW_CREDENTIALS = True
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

@@ -16,16 +16,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from carrito.views import CheckoutView, ConfirmView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     
     path('/productos/', include('productos.urls', namespace='productos')),
-    
-    path('', include('clientes.urls')),
+    path('cart/', include('carrito.urls', namespace='cart')),
+    path('api/auth/', include('users.urls')),
+
+
+
     path('', include('pedidos.urls')),
-    path('', include('pagos.urls')),
     path('', include('inventario.urls')),
     
-    
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
