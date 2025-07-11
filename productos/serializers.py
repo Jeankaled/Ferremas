@@ -8,6 +8,7 @@ class CategoriaProductoSerializer(serializers.ModelSerializer):
         
         
 class ProductoSerializer(serializers.ModelSerializer):
+    imagen_url = serializers.ImageField(source='imagen_producto', read_only=True)
     categoria_producto = CategoriaProductoSerializer(read_only=True)
     
     categoria_producto_id = serializers.PrimaryKeyRelatedField(
@@ -24,8 +25,15 @@ class ProductoSerializer(serializers.ModelSerializer):
             'marca_producto',
             'descripcion_producto',
             'categoria_producto',     
-            'categoria_producto_id'
+            'categoria_producto_id',
+            'imagen_url'
         ]
+        
+    def get_imagen(self, obj):
+      req = self.context.get('request')
+      if obj.imagen_producto and hasattr(obj.imagen_producto, 'url'):
+        return req.build_absolute_uri(obj.imagen_producto.url)
+      return None
        
         
 class PrecioProductoSerializer(serializers.ModelSerializer):

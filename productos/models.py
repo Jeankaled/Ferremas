@@ -20,9 +20,16 @@ class Producto(models.Model):
         )
     marca_producto = models.CharField(max_length=100)
     descripcion_producto = models.TextField()
+    imagen_producto = models.ImageField(upload_to='productos/', blank=True, null=True)
     
     def __str__(self):
         return self.nombre_producto
+    
+    @property
+    def precio_actual(self):
+        # precioproducto_set ordena ya por fecha descendente según tu Meta
+        ultimo = self.precioproducto_set.first()
+        return ultimo.precio if ultimo else 0
     
 
 
